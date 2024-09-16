@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "File Upload Vulnerability";
+}
+
+<h2>File Upload Vulnerability</h2>
+<p>Upload a file to see if the application can handle it securely.</p>
+
+<form method="post" enctype="multipart/form-data" action="/Home/FileUpload">
+    <div class="form-group">
+        <label for="fileUpload">Choose file to upload:</label>
+        <input type="file" id="fileUpload" name="fileUpload" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <p class="text-danger">@ViewBag.Message</p>
+}

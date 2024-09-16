@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Local File Inclusion Vulnerability";
+}
+
+<div class="container mt-5">
+    <h2>Local File Inclusion - Low Level</h2>
+    <p>Select a file to include:</p>
+
+    <ul>
+        <li><a href="/Home/LocalFileInclusion?file=about.txt">About (about.txt)</a></li>
+        <li><a href="/Home/LocalFileInclusion?file=contact.txt">Contact (contact.txt)</a></li>
+    </ul>
+
+    <h3>File Content:</h3>
+    <div class="file-content">
+        @Html.Raw(ViewBag.FileContent)
+    </div>
+</div>

@@ -1,0 +1,16 @@
+@{
+    ViewData["Title"] = "Weak Cookie Generation";
+}
+
+<h2>Weak Cookie Generation</h2>
+<p>Click the button below to generate a weak cookie:</p>
+
+<form asp-action="GenerateWeakCookie" method="post">
+    <button type="submit" class="btn btn-primary">Generate Cookie</button>
+</form>
+
+@if (ViewBag.CookieValue != null)
+{
+    <p><strong>Generated Cookie Value:</strong> @ViewBag.CookieValue</p>
+    <p>Check the "Application" tab in your browser developer tools to inspect the cookie.</p>
+}

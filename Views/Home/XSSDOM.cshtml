@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "DOM-based XSS Vulnerability";
+}
+
+<div class="container mt-5">
+    <h2>DOM-based XSS Example</h2>
+    <p>This example demonstrates a DOM-based XSS vulnerability.</p>
+    <div id="message">Message will appear here.</div>
+</div>
+
+<script>
+    window.onload = function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var message = urlParams.get('msg');
+    var outputDiv = document.getElementById('message');
+
+    // Debug: Log the message to console
+    console.log("Received message:", message);
+
+    // Attempt to set the innerHTML
+    if (message) {
+        outputDiv.innerHTML = message; // For demonstration, aware of the risks
+    } else {
+        outputDiv.textContent = "No message provided.";
+    }
+}
+
+</script>
+

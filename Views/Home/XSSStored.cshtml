@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Stored XSS Vulnerability";
+}
+
+<div class="container mt-5">
+    <h2>Stored XSS - Comment Section</h2>
+    <p>Submit a comment below. Comments are stored and displayed to all users:</p>
+
+    <form method="post" action="/Home/XSSStored">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required />
+        </div>
+
+        <div class="form-group">
+            <label for="content">Comment</label>
+            <textarea class="form-control" id="content" name="content" rows="3" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Submit Comment</button>
+    </form>
+
+    <hr />
+
+    <h3>All Comments</h3>
+    @foreach (var comment in Model)
+    {
+        <div class="comment">
+            <p><strong>@comment.Username</strong>: @Html.Raw(comment.Content)</p>
+        </div>
+    }
+</div>
+

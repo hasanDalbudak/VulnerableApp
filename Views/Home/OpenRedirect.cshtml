@@ -1,0 +1,11 @@
+@{
+    ViewData["Title"] = "Open Redirect Vulnerability";
+}
+
+<h2>Open Redirect Vulnerability</h2>
+<p>Enter a URL to be redirected:</p>
+
+<form method="get" action="/Home/OpenRedirect">
+    <input type="text" name="redirectUrl" placeholder="https://example.com" class="form-control" required />
+    <button type="submit" class="btn btn-primary mt-2">Redirect Me</button>
+</form>

@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "CSRF Vulnerability";
+}
+
+<div class="container mt-5">
+    <h2>Change Your Password</h2>
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-info">@ViewBag.Message</div>
+    }
+
+    <form method="post" action="/Home/CSRF">
+        <div class="form-group">
+            <label for="password">New Password</label>
+            <input type="password" class="form-control" id="password" name="password" required />
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Change Password</button>
+    </form>
+
+    <div class="mt-5">
+        <a href="/Home/TestCredentials" class="btn btn-warning">Test Credentials</a>
+    </div>
+</div>

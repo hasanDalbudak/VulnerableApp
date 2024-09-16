@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "SQL Injection Vulnerability";
+}
+
+<div class="container mt-5">
+    <h2>SQL Injection - Low Level</h2>
+    <p>Enter a username to search for a user. This form is vulnerable to SQL injection.</p>
+
+    <form method="post" action="/Home/SQLInjectionResult">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required />
+        </div>
+        <button type="submit" class="btn btn-danger mt-3">Search</button>
+    </form>
+</div>
+
+@if (ViewBag.Result != null)
+{
+    <div class="alert alert-info mt-3">
+        <strong>Query Result:</strong>
+        <p>@ViewBag.Result</p>
+    </div>
+}

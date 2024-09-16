@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Insecure CAPTCHA Challenge";
+}
+
+<h2>Insecure CAPTCHA Challenge</h2>
+@if(ViewBag.HideForm == null)
+{
+    <form asp-action="InsecureCAPTCHA" method="post">
+        <p>Please solve the following CAPTCHA to proceed:</p>
+        <p>What is 2 + 2?</p>
+        <input type="text" name="captchaAnswer" required />
+        <input type="hidden" name="step" value="1" />
+        <p>New Password:</p>
+        <input type="password" name="password_new" required />
+        <p>Confirm New Password:</p>
+        <input type="password" name="password_conf" required />
+        <button type="submit" name="Change">Submit</button>
+    </form>
+}
+else
+{
+    <form asp-action="InsecureCAPTCHA" method="post">
+        <input type="hidden" name="step" value="2" />
+        <input type="hidden" name="password_new" value="@ViewBag.Password" />
+        <input type="hidden" name="password_conf" value="@ViewBag.Password" />
+        <p>success</p>
+        <button type="submit" name="Change">Confirm Password Change</button>
+    </form>
+}

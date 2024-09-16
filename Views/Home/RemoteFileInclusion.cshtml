@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Remote File Inclusion Vulnerability";
+}
+
+<div class="container mt-5">
+    <h2>Remote File Inclusion - Low Level</h2>
+    <p>Enter a URL to include its content:</p>
+
+    <form method="get" action="/Home/RemoteFileInclusion">
+        <div class="form-group">
+            <label for="url">Remote URL</label>
+            <input type="text" class="form-control" id="url" name="url" required />
+        </div>
+        <button type="submit" class="btn btn-danger mt-3">Submit</button>
+    </form>
+
+    <hr />
+
+    <h3>Included File Content:</h3>
+    <div class="file-content">
+        @Html.Raw(ViewBag.FileContent)
+    </div>
+</div>

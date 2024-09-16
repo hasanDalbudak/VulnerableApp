@@ -1,0 +1,19 @@
+
+@{
+    ViewData["Title"] = "Authorization Bypass";
+}
+
+<h2>Authorization Bypass Example</h2>
+
+@if (ViewBag.IsAdmin != null)
+{
+    <a href="/Home/ViewUser" class="btn btn-primary">View Users</a>
+}
+else
+{
+    <p>You do not have permission to view users.</p>
+}
+
+
+
+

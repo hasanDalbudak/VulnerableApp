@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Command Injection";
+}
+
+<div class="container mt-5">
+    <h2>Command Injection Vulnerability</h2>
+    <p>Enter an IP address or domain name to ping:</p>
+
+    @if (ViewBag.Result != null)
+    {
+        <div class="alert alert-info">
+            <pre>@ViewBag.Result</pre>
+        </div>
+    }
+
+    <form method="post" action="/Home/CommandInjection">
+        <div class="form-group">
+            <label for="target">IP/Domain</label>
+            <input type="text" class="form-control" id="target" name="target" required />
+        </div>
+        <button type="submit" class="btn btn-danger mt-3">Ping</button>
+    </form>
+</div>

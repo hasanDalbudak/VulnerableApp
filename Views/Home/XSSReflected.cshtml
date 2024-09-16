@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Reflected XSS Vulnerability";
+}
+
+<div class="container mt-5">
+    <h2>Reflected XSS - Low Level</h2>
+    <p>Enter your name to see it reflected back:</p>
+
+    <form method="get" action="/Home/XSSReflected">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required />
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-info mt-3">
+            <strong>Reflected Result:</strong>
+            <p>@Html.Raw(ViewBag.Message)</p>
+        </div>
+    }
+
